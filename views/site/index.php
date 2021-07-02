@@ -1,12 +1,12 @@
 <?php
   $this->title = "EasyUI - Dynamic Tabs";
+  $theme = Yii::$app->session->get('user.theme');
 ?>
 
 <head>
-  <link rel="stylesheet" href="easyui/themes/<?= $theme ?>/easyui.css"> 
-  <link rel="stylesheet" href="easyui/themes/icon.css">
   <link rel="stylesheet" href="custom/index.css">
 </head>
+
 <body class="easyui-layout" data-options="fit:true">
 
   <!---Header-->

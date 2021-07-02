@@ -61,11 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $theme = Yii::$app->request->queryParams['theme'] ?? null;
-        if ($theme == null) $theme = Yii::$app->session->get('theme') ?? 'default';
-        if ($theme != null) Yii::$app->session->set('theme', $theme);
-
-        return $this->render('index', ['theme' => $theme]);
+        return $this->render('index');
     }
 
     /**

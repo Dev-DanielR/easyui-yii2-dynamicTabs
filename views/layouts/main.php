@@ -2,8 +2,9 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 use yii\helpers\Html;
+
+$theme = Yii::$app->session->get('user.theme');
 ?>
 
 <?php $this->beginPage() ?>
@@ -15,11 +16,14 @@ use yii\helpers\Html;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="stylesheet" href="easyui/themes/<?= $theme ?>/easyui.css"> 
+    <link rel="stylesheet" href="easyui/themes/icon.css">
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 <?= $content ?>
+
 <?php $this->endBody() ?>
 </body>
 </html>
