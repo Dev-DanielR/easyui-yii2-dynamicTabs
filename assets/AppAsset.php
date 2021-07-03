@@ -22,12 +22,11 @@ class AppAsset extends AssetBundle
     public $css = [
         'easyui/themes/default/easyui.css',
         'easyui/themes/icon.css',
-        'custom/index.css'
+        'custom/site.css'
     ];
     public $js = [
         'easyui/jquery.min.js',
         'easyui/jquery.easyui.min.js',
-        'custom/index.js'
     ];
     /*
     public $depends = [

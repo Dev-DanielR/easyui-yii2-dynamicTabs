@@ -32,6 +32,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
+                    'login'  => ['get', 'post'],
                     'logout' => ['post'],
                 ],
             ],
@@ -71,17 +72,19 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+        if (!Yii::$app->user->isGuest) return $this->goHome();
 
+        echo print_r(Yii::$app->request->post());
+
+        /*
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
-
         $model->password = '';
-        return $this->render('login', ['model' => $model]);
+        */
+
+        return $this->render('login');
     }
 
     /**

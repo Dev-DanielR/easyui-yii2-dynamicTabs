@@ -16,11 +16,12 @@ $theme = Yii::$app->session->get('user.theme');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
     <link rel="stylesheet" href="easyui/themes/<?= $theme ?>/easyui.css"> 
     <link rel="stylesheet" href="easyui/themes/icon.css">
-    <?php $this->head() ?>
+    <link rel="stylesheet" href="custom/site.css">
 </head>
-<body>
+<body class="easyui-layout" data-options="fit:true">
 <?php $this->beginBody() ?>
 <?= $content ?>
 

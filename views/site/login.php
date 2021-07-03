@@ -1,8 +1,6 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\LoginForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -10,38 +8,43 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+<div id="content" data-options="region:'center'" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
+    <div style="width: 40%; min-width: 250px; max-width: 500px;">
+        <h1 style="text-align: center;"><?= Html::encode($this->title) ?></h1>
+        <p style="text-align: justify;">Please fill out the following fields to login:</p>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-        <?= $form->field($model, 'password')->passwordInput() ?>
-
-        <?= $form->field($model, 'rememberMe')->checkbox([
-            'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ]) ?>
-
-        <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        <form id="login-form" method="post">
+            <div style="margin-bottom:20px">
+                <input
+                    class="easyui-textbox"
+                    name="username"
+                    style="width:100%"
+                    data-options="label:'Username:', required:'true', iconCls:'icon-man'">
             </div>
-        </div>
-
-    <?php ActiveForm::end(); ?>
-
-    <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+            <div style="margin-bottom:20px">
+                <input
+                    class="easyui-textbox"
+                    name="password"
+                    style="width:100%"
+                    data-options="label:'Password:', required:'true', iconCls:'icon-lock'">
+            </div>
+            <div style="margin-bottom:20px">
+                <input
+                    class="easyui-checkbox"
+                    type="checkbox"
+                    name="rememberMe"> <span>Remember me</span>
+            </div>
+            <div style="text-align: center; padding: 5px 0;">
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="sendForm()" style="width:80px">Login</a>
+            </div>
+        </form>
     </div>
+
 </div>
+
+<!--Scripts-->
+<script src="easyui/jquery.min.js"></script>
+<script src="easyui/jquery.easyui.min.js"></script>
+<script src="custom/login.js"></script>
